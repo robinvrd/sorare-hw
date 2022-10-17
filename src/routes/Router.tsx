@@ -10,7 +10,8 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="cards/:slug" element={<CardsPage />} />
+        <Route path="cards" element={<CardsPage />} />
+        <Route path="cards/:slugs" element={<CardsPage />} />
       </Routes>
     </BrowserRouter>
   );
