@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+## Context
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created as a technical assignment during Sorare recruiting process for a frontend engineer position.
 
-## Available Scripts
+### Part 1, 2 and 3
 
-In the project directory, you can run:
+These parts of the homework are the code itself where each part can be found on a different commit.
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Part 4
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+*Question: From there, how would you proceed to generate a PNG version of the card? (no code required)*
 
-### `yarn test`
+The easiest way for me to generate a PNG version in a frontend environnement would be to use the [html2canvas](https://www.npmjs.com/package/html2canvas) javascript library as discussed in that article for example https://blog.logrocket.com/export-react-components-as-images-html2canvas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Possible improvements
 
-### `yarn build`
+- Generate types from GraphQL API instead of creating them manually
+- Use images as card background to make the cards prettier and more customized (could also use some animated background with particles to make them even more customized)
+- Add the possibility to reveal card one by one in addition to the "reveal cards" action button (like in Sorare application)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) as it is the recommanded way of creating new React project according to the official document.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Setup is very easy using yarn command:
+```
+yarn
+```
 
-### `yarn eject`
+ ## Running
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ To run the project, you can use:
+ ```
+ yarn start
+ ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ Project will be accessible on http://localhost:3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How it works ?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The project is listing some cards on http://localhost:3000/cards page. 
 
-## Learn More
+To display some cards you need to add Sorare slug name after the url separated with a comma.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Example
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+http://localhost:3000/cards/marco-verratti-2021-rare-1,kylian-mbappe-lottin-2020-super_rare-1
+```
+
+This page will display two different cards, one rare of Marco Verratti and one super rare of Kylian Mbappé.
+
+The cards are hidden by default, to reveal them you need to click on the "Reveal cards" button as they will flip to reveal the other side of the cards.
+
+## Technical details
+
+### File structure
+
+Main files are inside `src` folder according to Create React App initial file structure.
+
+- `components`: React components used in routes or other components
+- `helpers`: generic functions used in the project
+- `pages`: React components used in the router to render page layout
+- `types`: Typescript types defined for GraphQL schema queried
+
+### Dependencies
+
+- `react-router-dom` (routing and url parameters)
+- `@apollo/client` (GraphQL queries)
+- `styled-components` (components with style-only purpose)
+- `react-sprint` (flip cards animation)
+- `react-spinners` (loading animation)
